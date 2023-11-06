@@ -1,0 +1,13 @@
+{
+    "todoList":[
+        {
+            "todo": "Go to the store"
+        },
+        {
+            "todo": "Learn code"
+        },
+        {
+            "todo": "Apply for Job"
+        }
+    ]
+}
