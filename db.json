@@ -1,12 +1,15 @@
 {
     "todoList":[
         {
+            "id": 0,
             "todo": "Go to the store"
         },
         {
+            "id": 1,
             "todo": "Learn code"
         },
         {
+            "id":2,
             "todo": "Apply for Job"
         }
     ]

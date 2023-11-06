@@ -49,14 +49,21 @@ body{
       }
       .todo-list{
         /* box-shadow: 10px 15px 20px rgba(238,174,202,1) ; */
-         text-align: center;
-        border-style: 1px solid;
+         /* text-align: center; */
+        /* border-style: 1px solid; */
         border-color: green;
          margin:0 10% 10px 10%;
         background-color: white;
-          padding:80px 70px 80px 70px;
+          /* padding:80px 70px 80px 70px; */
           /* width: 300px; */
           border-radius: 15px;
         }
 
       .add-task:hover {background-color: #87CEFA}
+
+    .each-task{
+        background-color: burlywood;
+        margin-top: 1px;
+        padding: 5px;
+        /* text-align: left; */
+    }
