@@ -8,7 +8,27 @@
     <title>Todo-List</title>
 </head>
 <body>
-
+    <h1>Your Day's Plan</h1>
+    <di id="time" class="display-time"></di>
+    <h3 class="time" id="current-date">
+    </h3>
+    <nav>
+      <a id="display-todolist" href="#">Todo List</a>
+      <a id="display-notelist" href="#">Note</a>
+    </nav>
+    <div id="display-task" class="task">
+    <h1 class="todo-title">Todo List Of</h1>
+      <div class="todo-list" id="todoList">
+      <p>first item</p>
+      <p>second item</p>
+      <p>third item</p>
+      </div>
+    
+      <form class="todo-form"  method="post" id="list-form">
+        <input class="todo-input" id="item-input" type="text" name="" value="" placeholder="add new item" autocomplete="off"><br>
+        <button type="submit" name="button" id="add" class="add-task">+</button>
+      </form>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

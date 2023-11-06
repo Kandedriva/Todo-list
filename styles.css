@@ -1,0 +1,62 @@
+body{
+    background-color: white;
+    background-image: url("https://www.transparenttextures.com/patterns/food.png");
+}
+.display-time{
+    border-width: medium;
+      border-color: black;
+      font-size: 25px;
+      background-color: white;
+      margin-left: 80%;
+      border-style: 1 solid;
+    }
+    .task{
+        /* background: rgb(238,174,202);
+      background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
+      background: rgb(34,193,195);
+      background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(220,188,68,1) 85%, rgba(253,187,45,1) 100%);
+      border-style: 2px solid;
+      border-color: orange;
+        margin: 0 20%  55px 20%;
+        box-shadow: 10px 15px 20px rgba(238,174,202,1) ;
+      border-radius: 20px;
+        text-align: center;
+        font-size: 25px;
+        padding: 15px 0px 10px 0px;
+  
+      }
+      .todo-title{
+        background-color: green;
+        margin-top: 0;
+      /* padding: 0 500px 0 540px; */
+      }
+      .add-task{
+        background-color: yellow;
+        padding:5px 20px 5px 20px;
+        border: none;
+        font-size: 40px;
+        margin-top: 10px;
+        border-radius: 50%;
+      }
+      .todo-input{
+        border-radius: 10px;
+        box-sizing: border-box;
+        border-style: solid;
+        font-stretch: expanded;
+      font-size: 20px;
+        width: 60%;
+        padding: 20px;
+      }
+      .todo-list{
+        /* box-shadow: 10px 15px 20px rgba(238,174,202,1) ; */
+         text-align: center;
+        border-style: 1px solid;
+        border-color: green;
+         margin:0 10% 10px 10%;
+        background-color: white;
+          padding:80px 70px 80px 70px;
+          /* width: 300px; */
+          border-radius: 15px;
+        }
+
+      .add-task:hover {background-color: #87CEFA}
