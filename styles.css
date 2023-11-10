@@ -48,25 +48,41 @@ body{
         padding: 20px;
       }
       .todo-list{
-        /* box-shadow: 10px 15px 20px rgba(238,174,202,1) ; */
-         /* text-align: center; */
+        /* box-shadow: 10px 15px 20px rgb(200, 174, 238) ; */
+         text-align: center;
         border-style: 1px solid;
         border-color: green;
          margin:0 10% 10px 10%;
         background-color: white;
-          padding:80px 70px 80px 70px;
+          padding:10px 70px 80px 70px;
           /* width: 300px; */
           border-radius: 15px;
         }
         .checkbox{
             display: inline-block;
-            margin-left: 12%;
+            margin-left: 6%;
+            font-size: large;
         }
         .remove-task{
-            margin-left: 15%;
+            margin-left: 50%;
 
         }
 
       .add-task:hover {background-color: #87CEFA}
+      .task-div{
+        border: 1px solid;
+      }
+      .time{
+        margin-top: 1px;
+font-family: Georgia, 'Times New Roman', Times, serif;    
+color: seagreen ;
+
+}
+.display-time{
+    border: 2px solid;
+    border-radius: 100%;
+    padding: 50px 15px 50px 15px;
+    box-shadow: 5%;
+}
 
   
