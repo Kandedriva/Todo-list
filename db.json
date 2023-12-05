@@ -1,16 +1,18 @@
 {
-    "todoList":[
-        {
-            "id": 0,
-            "todo": "Go to the store"
-        },
-        {
-            "id": 1,
-            "todo": "Learn code"
-        },
-        {
-            "id":2,
-            "todo": "Apply for Job"
-        }
-    ]
+  "todoList": [
+    {
+      "id": 1,
+      "todo": "Learn code",
+      "lineThrough": false
+    },
+    {
+      "todo": "Learn Back end",
+      "id": 4,
+      "lineThrough": false
+    },
+    {
+      "todo": "Apply for job",
+      "id": 5
+    }
+  ]
 }

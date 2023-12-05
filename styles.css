@@ -2,6 +2,11 @@ body{
     background-color: white;
     background-image: url("https://www.transparenttextures.com/patterns/food.png");
 }
+nav{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 35px;
+}
 .display-time{
     border-width: medium;
       border-color: black;
@@ -81,9 +86,10 @@ color: seagreen ;
 
 }
 .display-time{
+  margin-right: 15px;
     border: 2px solid;
-    border-radius: 100%;
-    padding: 50px 15px 50px 15px;
+    /* border-radius: 100%; */
+    padding: 25px 10px 25px 10px;
     box-shadow: 5%;
 }
 .task-div{
@@ -92,4 +98,21 @@ color: seagreen ;
 /* .task-div:hover, .task-div:active {height: 15%;} */
 .task-div:hover {
   transform: scale(1.07); /* Scale the element to 120% on hover */
+}
+.header{
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 25px;
+}
+
+.header-text{
+  border: 3px solid;
+  display: inline-block;
+}
+
+/* .check-box:checked + .checkbox {
+  text-decoration: line-through;
+}  */
+.lineThrough{
+  text-decoration: line-through;
 }
