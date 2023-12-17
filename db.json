@@ -13,6 +13,20 @@
     {
       "todo": "Apply for job",
       "id": 5
+    },
+    {
+      "todo": "Cook my diner",
+      "id": 6
+    },
+    {
+      "todo": "Go to bed",
+      "id": 8,
+      "lineThrough": true
+    },
+    {
+      "todo": "Bed time",
+      "id": 9,
+      "lineThrough": true
     }
   ]
 }
