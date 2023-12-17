@@ -116,3 +116,6 @@ color: seagreen ;
 .lineThrough{
   text-decoration: line-through;
 }
+.note{
+  text-align: center;
+}

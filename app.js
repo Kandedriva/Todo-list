@@ -3,6 +3,22 @@ const checkbox = document.getElementById("checkbox")
 const checkMe = document.getElementById("check-me");
 const theDate = document.getElementById("current-date");
 const listForm = document.getElementById("list-form");
+const displayTodoList = document.getElementById("display-todolist");
+const displayNoteList = document.getElementById("display-notelist");
+const displayNoteForm = document.getElementById("display-note-form");
+const displayTask = document.getElementById("display-task");
+
+displayNoteForm.style.display = "none";
+displayTodoList.addEventListener("click", ()=>{
+    displayNoteForm.style.display = "none";
+    displayTask.style.display = ""
+  })
+  
+  displayNoteList.addEventListener("click", ()=>{
+    displayNoteForm.style.display = "";
+    displayTask.style.display = "none"
+  })
+  
 
 
 function taskList(task){
@@ -61,7 +77,7 @@ function taskList(task){
     })
 }
 
-function displayTask(){
+function displayTaskList(){
     fetch("http://localhost:3000/todoList")
 .then(response =>response.json())
 .then(tasks =>{
@@ -69,7 +85,7 @@ function displayTask(){
     tasks.forEach(task => taskList(task));
 });
 } 
-displayTask();
+displayTaskList();
 
 listForm.addEventListener("submit", (event)=>{
     event.preventDefault();
@@ -113,3 +129,4 @@ function updateTime() {
 updateTime();
 
 setInterval(updateTime, 1000);
+
