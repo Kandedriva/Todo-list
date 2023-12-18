@@ -8,25 +8,47 @@ const displayNoteList = document.getElementById("display-notelist");
 const displayNoteForm = document.getElementById("display-note-form");
 const displayTask = document.getElementById("display-task");
 const newNote = document.getElementById("noteForm");
+const anewNoteForm = document.getElementById("display-noteForm")
+const noteList = document.getElementById("noteList");
+
 
 displayNoteForm.style.display = "none";
+newNote.style.display = "none";
+// noteList.style.display = "";
+
+anewNoteForm.addEventListener("click", (e)=>{
+    if(anewNoteForm.textContent === "Create New Note"){
+        anewNoteForm.textContent = "Notes List"
+        newNote.style.display = "";
+    noteList.style.display = "none";
+
+    }else{
+        // anewNoteForm.textContent = "Notes List"
+        anewNoteForm.textContent = "Create New Note"
+        newNote.style.display = "none";
+        noteList.style.display = "";
+    }
+    
+})
 
 displayTodoList.addEventListener("click", ()=>{
     displayNoteForm.style.display = "none";
     displayTask.style.display = "";
+    newNote.style.display = "none";
+        noteList.style.display = "";
+        
   })
   
   displayNoteList.addEventListener("click", ()=>{
     displayNoteForm.style.display = "";
-    displayTask.style.display = "none"
+    displayTask.style.display = "none";
+    
+
+   
   })
 
-  function noteCreator(){  
-  fetch("http://localhost:3000/notes")
-  .then(response =>response.json())
-  .then(theNotes =>{
-      theNotes.forEach(note=>{
-          const noteList = document.getElementById("noteList");
+  function noteCreator(note){  
+        //   const noteList = document.getElementById("noteList");
           const noteTile = document.createElement("h2");
           const noteDetails = document.createElement("p");
           const noteContaine = document.createElement("div");
@@ -58,18 +80,22 @@ displayTodoList.addEventListener("click", ()=>{
             .then(removeNotes =>{noteContaine.remove()
             }
             )
-            
-    
         })
 
-      })
      
-
-  })
+ 
 
   }
-  noteCreator()
 
+  function displayNotes(){
+    fetch("http://localhost:3000/notes")
+    .then(response =>response.json())
+    .then(theNotes =>{
+        theNotes.forEach(theNote=>noteCreator(theNote))
+    })
+  
+  }
+  displayNotes()
 function taskList(task){
     const todoContainer = document.getElementById("todoContainer");
     const todoItem = document.createElement("p");
@@ -197,9 +223,12 @@ newNote.addEventListener("submit", (event)=>{
     })
     .then(response =>response.json())
     .then(newNotes =>{
+        console.log()
         noteCreator(newNotes)
         document.getElementById("title").value = "";
         document.getElementById("details").value = "";
+        newNote.style.display = "none";
+        noteList.style.display = "";
     })
     
 })
