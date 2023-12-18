@@ -32,30 +32,39 @@ displayTodoList.addEventListener("click", ()=>{
           const noteContaine = document.createElement("div");
           const theDate = document.createElement("p");
           const removeNote = document.createElement("button")
+       const today = new Date();
+       const id = note.id
 
-          const today = new Date();
           const creationDate = today.toLocaleString("en-US", {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
           });
-          console.log(creationDate);
+        
           theDate.textContent = `Note created ${creationDate}`;
           noteContaine.setAttribute("class", "note-container")
           removeNote.textContent = "Remove Note"
-
 
           noteTile.textContent = note.noteTitle;
           noteDetails.textContent = note.details;
           noteContaine.append(noteTile, noteDetails, theDate, removeNote)
           noteList.appendChild(noteContaine);
 
-          console.log(noteTile);
+          removeNote.addEventListener("click", ()=>{
+            fetch(`http://localhost:3000/notes/${id}`,{
+                method: "DELETE",
+            })
+            .then(response => response.json())
+            .then(removeNotes =>{noteContaine.remove()
+            }
+            )
+            
+    
+        })
+
       })
-      
+     
 
-
-      console.log(theNotes[0].noteTitle);
   })
 
   }
