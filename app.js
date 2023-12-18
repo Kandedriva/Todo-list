@@ -7,19 +7,59 @@ const displayTodoList = document.getElementById("display-todolist");
 const displayNoteList = document.getElementById("display-notelist");
 const displayNoteForm = document.getElementById("display-note-form");
 const displayTask = document.getElementById("display-task");
+const newNote = document.getElementById("noteForm");
 
 displayNoteForm.style.display = "none";
+
 displayTodoList.addEventListener("click", ()=>{
     displayNoteForm.style.display = "none";
-    displayTask.style.display = ""
+    displayTask.style.display = "";
   })
   
   displayNoteList.addEventListener("click", ()=>{
     displayNoteForm.style.display = "";
     displayTask.style.display = "none"
   })
-  
 
+  function noteCreator(){  
+  fetch("http://localhost:3000/notes")
+  .then(response =>response.json())
+  .then(theNotes =>{
+      theNotes.forEach(note=>{
+          const noteList = document.getElementById("noteList");
+          const noteTile = document.createElement("h2");
+          const noteDetails = document.createElement("p");
+          const noteContaine = document.createElement("div");
+          const theDate = document.createElement("p");
+          const removeNote = document.createElement("button")
+
+          const today = new Date();
+          const creationDate = today.toLocaleString("en-US", {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+          console.log(creationDate);
+          theDate.textContent = `Note created ${creationDate}`;
+          noteContaine.setAttribute("class", "note-container")
+          removeNote.textContent = "Remove Note"
+
+
+          noteTile.textContent = note.noteTitle;
+          noteDetails.textContent = note.details;
+          noteContaine.append(noteTile, noteDetails, theDate, removeNote)
+          noteList.appendChild(noteContaine);
+
+          console.log(noteTile);
+      })
+      
+
+
+      console.log(theNotes[0].noteTitle);
+  })
+
+  }
+  noteCreator()
 
 function taskList(task){
     const todoContainer = document.getElementById("todoContainer");
@@ -129,4 +169,29 @@ function updateTime() {
 updateTime();
 
 setInterval(updateTime, 1000);
+
+newNote.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    const newNoteTitle = document.getElementById("title").value;
+    const newNoteDetails = document.getElementById("details").value;
+    const createdNote = {
+        noteTitle: newNoteTitle,
+        details: newNoteDetails
+    }
+    fetch("http://localhost:3000/notes",{
+        method: "POST",
+        headers: { 
+            "content-type": "application/json",
+            "accept": "application/json"
+        },
+        body: JSON.stringify(createdNote)
+    })
+    .then(response =>response.json())
+    .then(newNotes =>{
+        noteCreator(newNotes)
+        document.getElementById("title").value = "";
+        document.getElementById("details").value = "";
+    })
+    
+})
 

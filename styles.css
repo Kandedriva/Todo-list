@@ -119,3 +119,42 @@ color: seagreen ;
 .note{
   text-align: center;
 }
+.note-container{
+    width: 300px;
+  text-align: center;
+  margin: 2px;
+  padding: 10px;
+  display: inline-block;
+  border: 2px solid;
+  background-color: white;
+  
+}
+.note-list{
+  /* text-align: center; */
+  /* width: 200px; */
+  margin: 30px 0 20px 0;
+}
+.note-container{
+  transition: transform 0.3s ease-in-out;
+}
+/* .task-div:hover, .task-div:active {height: 15%;} */
+.note-container:hover {
+  transform: scale(1.07); /* Scale the element to 120% on hover */
+  border: 3px solid;
+  border-color: #00FF66;
+}
+.create-note{
+  margin-top: 30px;
+  padding: 10px;
+}
+.note-form{
+  border: 9px solid orange;
+  /* border-color: rgb(237, 245, 4); */
+  background-color: white;
+  margin: 30px 250px 30px 250px;
+  padding: 30px 0 30px 0;
+}
+.note-tittle{
+  margin-bottom: 30px;
+  font-size: 25px;
+}
