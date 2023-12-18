@@ -65,7 +65,12 @@ displayTodoList.addEventListener("click", ()=>{
         
           theDate.textContent = `Note created ${creationDate}`;
           noteContaine.setAttribute("class", "note-container")
+          removeNote.setAttribute("class", "remove-note")
+          theDate.setAttribute("class", "the-date")
+
+
           removeNote.textContent = "Remove Note"
+
 
           noteTile.textContent = note.noteTitle;
           noteDetails.textContent = note.details;

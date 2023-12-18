@@ -12,25 +12,28 @@
     },
     {
       "todo": "Apply for job",
-      "id": 5
+      "id": 5,
+      "lineThrough": false
     },
     {
       "todo": "Cook my diner",
-      "id": 6
+      "id": 6,
+      "lineThrough": false
     },
     {
       "todo": "Go to bed",
       "id": 8,
-      "lineThrough": true
+      "lineThrough": false
     },
     {
       "todo": "Bed time",
       "id": 9,
-      "lineThrough": false
+      "lineThrough": true
     },
     {
       "todo": "This is a try",
-      "id": 10
+      "id": 10,
+      "lineThrough": true
     }
   ],
   "notes": [
@@ -43,6 +46,21 @@
       "noteTitle": "a diam sollicitudin",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum nisi quis eleifend quam. Ut pharetra sit amet aliquam. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi. Magna fringilla urna porttitor rhoncus. ",
       "id": 13
+    },
+    {
+      "noteTitle": "consequat id porta",
+      "details": "Viverra nibh cras pulvinar mattis nunc sed blandit libero. Dui vivamus arcu felis bibendum ut. Lacus sed viverra tellus in. Pellentesque dignissim enim sit amet venenatis urna. Gravida arcu ac tortor dignissim convallis aenean et. Porta nibh venenatis cras sed felis eget. Adipiscing vitae proin sagittis nisl rhoncus. Purus sit amet luctus venenatis lectus magna fringilla urna. Massa massa ultricies mi quis hendrerit dolor magna. ",
+      "id": 14
+    },
+    {
+      "noteTitle": "enim nunc faucibus",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam. Aliquam eleifend mi in nulla posuere sollicitudin.",
+      "id": 15
+    },
+    {
+      "noteTitle": "enim neque volutpat",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Imperdiet massa tincidunt nunc pulvinar sapien et ligula. Sed odio morbi quis commodo odio aenean sed adipiscing.",
+      "id": 16
     }
   ]
 }
