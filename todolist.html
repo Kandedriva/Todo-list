@@ -11,9 +11,9 @@
 <body>
     <div class="header">
         <h1 class="header-text">Your Day's Plan</h1>
-
     </div>
 
+    <!-- DIV TO DISPLAY TIME AND TITLES-->
     <di id="time" class="display-time"></di>
     </h3>
     <nav>
@@ -29,13 +29,14 @@
 
      </div>
       </div>
-    
+    <!-- FORM TO CREATE A NEW TASK FOR TODO-LIST -->
       <form class="todo-form"  method="post" id="list-form">
         <input class="todo-input" id="item-input" type="text" name="" value="" placeholder="add new item" autocomplete="off"><br>
         <button type="submit" name="button" id="add" class="add-task">+</button>
       </form>
     </div>
 
+    <!-- NOTE CREATION FORM -->
     <div class="note" id="display-note-form">
       <h1 class="note-list-title">Notes List</h1>
       <button id="display-noteForm" class="swich-forms">Create New Note</button>
@@ -47,26 +48,10 @@
         <button type="submit" name="button" class="create-note">Add Note</button>
       </form>
     
-    
+    <!-- NOTES LIST CONTAINER -->
       <div class="note-list" id="noteList">
-        <!-- <div id="render-note" class="note-container">
-          <button class="fa-solid fa-file-pen edit-note" id="edit-note">Edit</button>
-          <h2 id="note-title"></h2>
-          <p id="note-details"></p>
-          <p id="the-date"></p>
-          <button class="remove-note">Remove Note</button>
-
-        </div> -->
     
       </div>
-      <!-- <h1>Simple Alarm</h1>
-      <p>Set the alarm time:</p>
-      <input type="time" id="alarm-time">
-      <button type="submit" id="set-alarm">Set Alarm</button>
-    
-    <audio src="audio/alarm.wav" id="audio"> 
-    
-    </audio> -->
     </div>
     
     

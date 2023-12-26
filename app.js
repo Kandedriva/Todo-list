@@ -309,10 +309,7 @@ listForm.addEventListener("submit", (event)=>{
     .then(response => response.json())
     .then(todo =>taskList(todo))
     itemInput.value = ""
-})
-
-
-//Create and display current Time 
+});
 
 
 
