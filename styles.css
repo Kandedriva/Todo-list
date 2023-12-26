@@ -123,6 +123,7 @@ color: seagreen ;
 }
 
 .header-text{
+  background-color: #87CEFA;
   border: 3px solid;
   display: inline-block;
 }
@@ -220,4 +221,11 @@ color: seagreen ;
 .note-form{
   padding: 10px;
   margin: 5px;
+}
+.edit-note{
+  padding: 5px 35px 5px 35px;
+ 
+}
+.edit-note:hover{
+  background-color: yellow;
 }

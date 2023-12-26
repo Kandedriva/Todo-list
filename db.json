@@ -3,27 +3,27 @@
     {
       "id": 1,
       "todo": "Learn code",
-      "lineThrough": false
+      "lineThrough": true
     },
     {
       "todo": "Learn Back end",
       "id": 4,
-      "lineThrough": false
+      "lineThrough": true
     },
     {
       "todo": "Apply for job",
       "id": 5,
-      "lineThrough": false
+      "lineThrough": true
     },
     {
       "todo": "Cook my diner",
       "id": 6,
-      "lineThrough": false
+      "lineThrough": true
     },
     {
       "todo": "Go to bed",
       "id": 8,
-      "lineThrough": false
+      "lineThrough": true
     },
     {
       "todo": "Bed time",
@@ -38,29 +38,22 @@
   ],
   "notes": [
     {
-      "noteTitle": "pulvinar proin gravida",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet cursus sit amet dictum sit. Bibendum enim facilisis gravida neque convallis a cras semper auctor.",
-      "id": 12
+      "noteTitle": "Drissa",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus. Vitae tempus quam pellentesque nec nam. Lectus mauris ultrices eros in cursus turpis massa tincidunt. Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. Tortor id aliquet lectus proin nibh nisl. Vel pretium lectus quam id leo in vitae turpis. Fringilla urna porttitor rhoncus dolor purus non enim praesent elementum. Nunc mi ipsum faucibus vitae. Sit amet mattis vulputate enim nulla. Dictum varius duis at consectetur lorem donec massa sapien. Eu nisl nunc mi ipsum faucibus. Elit duis tristique sollicitudin nibh. At elementum eu facilisis sed. ",
+      "id": 15,
+      "date": "December 26, 2023"
     },
     {
-      "noteTitle": "a diam sollicitudin",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum nisi quis eleifend quam. Ut pharetra sit amet aliquam. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi. Magna fringilla urna porttitor rhoncus. ",
-      "id": 13
+      "noteTitle": "Kande Ragnard",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus. Vitae tempus quam pellentesque nec nam. Lectus mauris ultrices eros in cursus turpis massa tincidunt. Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. Tortor id aliquet lectus proin nibh nisl. Vel pretium lectus quam id leo in vitae turpis. Fringilla urna porttitor rhoncus dolor purus non enim praesent elementum. Nunc mi ipsum faucibus vitae. Sit amet mattis vulputate enim nulla. Dictum varius duis at consectetur lorem donec massa sapien. Eu nisl nunc mi ipsum faucibus. Elit duis tristique sollicitudin nibh. At elementum eu facilisis sed. ",
+      "id": 23,
+      "date": "December 26, 2023"
     },
     {
-      "noteTitle": "consequat id porta",
-      "details": "Viverra nibh cras pulvinar mattis nunc sed blandit libero. Dui vivamus arcu felis bibendum ut. Lacus sed viverra tellus in. Pellentesque dignissim enim sit amet venenatis urna. Gravida arcu ac tortor dignissim convallis aenean et. Porta nibh venenatis cras sed felis eget. Adipiscing vitae proin sagittis nisl rhoncus. Purus sit amet luctus venenatis lectus magna fringilla urna. Massa massa ultricies mi quis hendrerit dolor magna. ",
-      "id": 14
-    },
-    {
-      "noteTitle": "enim nunc faucibus",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam. Aliquam eleifend mi in nulla posuere sollicitudin.",
-      "id": 15
-    },
-    {
-      "noteTitle": "enim neque volutpat",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Imperdiet massa tincidunt nunc pulvinar sapien et ligula. Sed odio morbi quis commodo odio aenean sed adipiscing.",
-      "id": 16
+      "date": "December 26, 2023",
+      "noteTitle": "id donec ultrices",
+      "details": "Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Pellentesque nec nam aliquam sem et. Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Enim sed faucibus turpis in eu mi bibendum. Quis blandit turpis cursus in hac. Platea dictumst quisque sagittis purus sit amet volutpat consequat mauris. Urna nunc id cursus metus. Urna nec tincidunt praesent semper. Risus sed vulputate odio ut enim. Non enim praesent elementum facilisis. Viverra justo nec ultrices dui sapien eget mi proin sed. Duis at consectetur lorem donec. Mi proin sed libero enim sed faucibus turpis in. At erat pellentesque adipiscing commodo elit. At varius vel pharetra vel turpis nunc eget lorem. Ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Velit euismod in pellentesque massa placerat duis. Est ultricies integer quis auctor elit.\n\n",
+      "id": 24
     }
   ]
 }

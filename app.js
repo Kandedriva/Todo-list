@@ -11,6 +11,31 @@ const newNote = document.getElementById("noteForm");
 const anewNoteForm = document.getElementById("display-noteForm")
 const noteList = document.getElementById("noteList");
 
+const editNoteForm = document.createElement("form");
+          const editNoteTitle = document.createElement("input")
+            const editNoteDetail = document.createElement("textarea")
+            const editButton = document.createElement("button");
+            const breakLine = document.createElement("br");
+            const titleLabel = document.createElement("label")
+            const detailLabel = document.createElement("label")
+
+
+            titleLabel.textContent = "Title"
+            detailLabel.textContent = "Details"
+
+            editNoteForm.setAttribute("class", "note-form")
+            editButton.setAttribute("class", "create-note");
+            editButton.textContent = "Save";
+            editNoteTitle.setAttribute("class", "note-tittle");
+            editNoteDetail.setAttribute("cols", "40");
+            editNoteDetail.setAttribute("rows", "5");
+            
+            editNoteForm.style.display = "none"
+
+            editNoteForm.append(titleLabel, editNoteTitle, breakLine, detailLabel, editNoteDetail, editButton)
+            console.log(editNoteForm)
+            noteList.appendChild(editNoteForm)
+
 
 displayNoteForm.style.display = "none";
 newNote.style.display = "none";
@@ -41,40 +66,35 @@ displayTodoList.addEventListener("click", ()=>{
   
   displayNoteList.addEventListener("click", ()=>{
     displayNoteForm.style.display = "";
-    displayTask.style.display = "none";
-    
-
-   
+    displayTask.style.display = "none"; 
   })
 
   function noteCreator(note){  
-        //   const noteList = document.getElementById("noteList");
           const noteTile = document.createElement("h2");
           const noteDetails = document.createElement("p");
           const noteContaine = document.createElement("div");
           const theDate = document.createElement("p");
           const removeNote = document.createElement("button")
-       const today = new Date();
-       const id = note.id
+          const editNote = document.createElement("button");
+          
 
-          const creationDate = today.toLocaleString("en-US", {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          });
-        
-          theDate.textContent = `Note created ${creationDate}`;
+          const dateOfCreation = note.date;
+      
+          const id = note.id
+       
+          
+        //   dateOfCreation = creationDate
+          theDate.textContent = dateOfCreation;
           noteContaine.setAttribute("class", "note-container")
-          removeNote.setAttribute("class", "remove-note")
+          removeNote.setAttribute("class", "remove-note ")
           theDate.setAttribute("class", "the-date")
-
-
-          removeNote.textContent = "Remove Note"
-
+          removeNote.textContent = "Remove Note";
+          editNote.textContent = "Edit"
+          editNote.setAttribute("class", "fa-solid fa-file-pen edit-note")
 
           noteTile.textContent = note.noteTitle;
           noteDetails.textContent = note.details;
-          noteContaine.append(noteTile, noteDetails, theDate, removeNote)
+          noteContaine.append(editNote, noteTile, noteDetails, theDate, removeNote)
           noteList.appendChild(noteContaine);
 
           removeNote.addEventListener("click", ()=>{
@@ -86,21 +106,67 @@ displayTodoList.addEventListener("click", ()=>{
             }
             )
         })
+        editNote.addEventListener("click", ()=>{
+            editNoteForm.style.display = ""
+        editNoteTitle.value =  noteTile.textContent;
+        editNoteDetail.value = noteDetails.textContent;  
+        changeNote()
+      
+        })
 
-     
- 
+        function changeNote(){
+            editNoteForm.addEventListener("submit", (e)=>{
+                e.preventDefault();
+
+                const noteEdited = {
+                    noteTitle:  editNoteTitle.value,
+                    details: editNoteDetail.value
+                }
+                noteTile.textContent = noteEdited.noteTitle;
+                noteDetails.textContent = noteEdited.details;
+                
+                fetch(`http://localhost:3000/notes/${id}`,{
+                    method: "PATCH",
+                    headers: {"content-type": "application/json",
+                               "accept": "application/json"
+                },
+                body: JSON.stringify(noteEdited)
+                })
+                .then(response=>response.json())
+                .then(newNote=>{
+                    // newNote.noteTitle = noteEdited.newTitle;
+                    console.log(newNote)
+                    // editNoteTitle.value = noteTile.textContent
+                    // editNoteDetail.value = noteDetails.textContent
+                    // noteDetails.value = noteEdited.newDetail;
+                    newNote.noteTitle = noteEdited.noteTitle;
+                    newNote.details = noteEdited.details;
+                    
+                })
+                editNoteForm.style.display = "none"
+               
+                //  noteTile.textContent = noteEdited.noteTitle;
+                // noteDetails.textContent = noteEdited.details;
+            })
+            
+
+        }
 
   }
+
 
   function displayNotes(){
     fetch("http://localhost:3000/notes")
     .then(response =>response.json())
     .then(theNotes =>{
+        console.log(theNotes)
         theNotes.forEach(theNote=>noteCreator(theNote))
     })
   
   }
+
   displayNotes()
+
 function taskList(task){
     const todoContainer = document.getElementById("todoContainer");
     const todoItem = document.createElement("p");
@@ -214,7 +280,14 @@ newNote.addEventListener("submit", (event)=>{
     event.preventDefault();
     const newNoteTitle = document.getElementById("title").value;
     const newNoteDetails = document.getElementById("details").value;
+    const today = new Date();
+          const creationDate = today.toLocaleString("en-US", {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
     const createdNote = {
+        date: creationDate,
         noteTitle: newNoteTitle,
         details: newNoteDetails
     }
