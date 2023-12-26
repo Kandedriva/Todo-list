@@ -1,3 +1,5 @@
+
+// GLOBAL VARIABLES
 const todoList = document.getElementById("todoList");
 const checkbox = document.getElementById("checkbox")
 const checkMe = document.getElementById("check-me");
@@ -11,6 +13,27 @@ const newNote = document.getElementById("noteForm");
 const anewNoteForm = document.getElementById("display-noteForm")
 const noteList = document.getElementById("noteList");
 
+//TIME CREATION
+let date = new Date();
+const currentDate = date.toLocaleString("en-US", {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  weekday: 'long'
+});
+theDate.textContent = currentDate;
+
+function updateTime() {
+  const timeElement = document.getElementById('time');
+
+  timeElement.textContent = new Date().toLocaleTimeString();
+}
+
+updateTime();
+
+setInterval(updateTime, 1000);
+
+//CREATE FORM TO EDIT THE NOTES
 const editNoteForm = document.createElement("form");
           const editNoteTitle = document.createElement("input")
             const editNoteDetail = document.createElement("textarea")
@@ -19,10 +42,8 @@ const editNoteForm = document.createElement("form");
             const titleLabel = document.createElement("label")
             const detailLabel = document.createElement("label")
 
-
             titleLabel.textContent = "Title"
             detailLabel.textContent = "Details"
-
             editNoteForm.setAttribute("class", "note-form")
             editButton.setAttribute("class", "create-note");
             editButton.textContent = "Save";
@@ -39,8 +60,8 @@ const editNoteForm = document.createElement("form");
 
 displayNoteForm.style.display = "none";
 newNote.style.display = "none";
-// noteList.style.display = "";
 
+// EVENT LISTENERS TO SWITCH THE BUTTONS AND THEIR TEXT-ONTENT
 anewNoteForm.addEventListener("click", (e)=>{
     if(anewNoteForm.textContent === "Create New Note"){
         anewNoteForm.textContent = "Notes List"
@@ -48,7 +69,6 @@ anewNoteForm.addEventListener("click", (e)=>{
     noteList.style.display = "none";
 
     }else{
-        // anewNoteForm.textContent = "Notes List"
         anewNoteForm.textContent = "Create New Note"
         newNote.style.display = "none";
         noteList.style.display = "";
@@ -69,21 +89,19 @@ displayTodoList.addEventListener("click", ()=>{
     displayTask.style.display = "none"; 
   })
 
+  //FONCTION TO CREATE NOTES
   function noteCreator(note){  
+
+    //NOTES FORMAT CREATION
           const noteTile = document.createElement("h2");
           const noteDetails = document.createElement("p");
           const noteContaine = document.createElement("div");
           const theDate = document.createElement("p");
           const removeNote = document.createElement("button")
           const editNote = document.createElement("button");
-          
 
           const dateOfCreation = note.date;
-      
           const id = note.id
-       
-          
-        //   dateOfCreation = creationDate
           theDate.textContent = dateOfCreation;
           noteContaine.setAttribute("class", "note-container")
           removeNote.setAttribute("class", "remove-note ")
@@ -97,6 +115,7 @@ displayTodoList.addEventListener("click", ()=>{
           noteContaine.append(editNote, noteTile, noteDetails, theDate, removeNote)
           noteList.appendChild(noteContaine);
 
+          //DELETE REQUEST TO REMOVE A NOTE
           removeNote.addEventListener("click", ()=>{
             fetch(`http://localhost:3000/notes/${id}`,{
                 method: "DELETE",
@@ -106,6 +125,7 @@ displayTodoList.addEventListener("click", ()=>{
             }
             )
         })
+        //DISPLAY THE EDIT NOTE FORME
         editNote.addEventListener("click", ()=>{
             editNoteForm.style.display = ""
         editNoteTitle.value =  noteTile.textContent;
@@ -114,6 +134,7 @@ displayTodoList.addEventListener("click", ()=>{
       
         })
 
+        // FUNCTION TO MAKE THE PATCH REQUEST TO EDIT A NOTE
         function changeNote(){
             editNoteForm.addEventListener("submit", (e)=>{
                 e.preventDefault();
@@ -125,6 +146,7 @@ displayTodoList.addEventListener("click", ()=>{
                 noteTile.textContent = noteEdited.noteTitle;
                 noteDetails.textContent = noteEdited.details;
                 
+                //PATCH REQUEST TO EDIT A NOTE
                 fetch(`http://localhost:3000/notes/${id}`,{
                     method: "PATCH",
                     headers: {"content-type": "application/json",
@@ -134,19 +156,12 @@ displayTodoList.addEventListener("click", ()=>{
                 })
                 .then(response=>response.json())
                 .then(newNote=>{
-                    // newNote.noteTitle = noteEdited.newTitle;
                     console.log(newNote)
-                    // editNoteTitle.value = noteTile.textContent
-                    // editNoteDetail.value = noteDetails.textContent
-                    // noteDetails.value = noteEdited.newDetail;
                     newNote.noteTitle = noteEdited.noteTitle;
                     newNote.details = noteEdited.details;
                     
                 })
                 editNoteForm.style.display = "none"
-               
-                //  noteTile.textContent = noteEdited.noteTitle;
-                // noteDetails.textContent = noteEdited.details;
             })
             
 
@@ -154,7 +169,7 @@ displayTodoList.addEventListener("click", ()=>{
 
   }
 
-
+//GET REQUEST TO DISPLAY ALL THE NOTES
   function displayNotes(){
     fetch("http://localhost:3000/notes")
     .then(response =>response.json())
@@ -166,6 +181,45 @@ displayTodoList.addEventListener("click", ()=>{
   }
 
   displayNotes()
+
+  //ADD EVENT LISTENER TO THE NOTE CREATION FORM
+newNote.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    const newNoteTitle = document.getElementById("title").value;
+    const newNoteDetails = document.getElementById("details").value;
+    const today = new Date();
+          const creationDate = today.toLocaleString("en-US", {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+    const createdNote = {
+        date: creationDate,
+        noteTitle: newNoteTitle,
+        details: newNoteDetails
+    }
+    //POST REQUEST TO CREATE A NEW NOTE
+    fetch("http://localhost:3000/notes",{
+        method: "POST",
+        headers: { 
+            "content-type": "application/json",
+            "accept": "application/json"
+        },
+        body: JSON.stringify(createdNote)
+    })
+    .then(response =>response.json())
+    .then(newNotes =>{
+        console.log()
+        noteCreator(newNotes)
+        document.getElementById("title").value = "";
+        document.getElementById("details").value = "";
+        newNote.style.display = "none";
+        noteList.style.display = "";
+    })
+    
+})
+
+  //FONCTION TO CREATE A TASK FOR TODO LIST
 
 function taskList(task){
     const todoContainer = document.getElementById("todoContainer");
@@ -210,6 +264,7 @@ function taskList(task){
         })
         .catch(error => console.error("There was an error:", error))
     })
+    //DELETE REQUEST TO REMOVE A TASK FROM TODO LIST
     remove.addEventListener("click", e=>{
         fetch(`http://localhost:3000/todoList/${id}`,{
             method: "DELETE",
@@ -223,6 +278,7 @@ function taskList(task){
     })
 }
 
+    //GET REQUEST TO DIPLAY ALL THE TODO LIST TASKS
 function displayTaskList(){
     fetch("http://localhost:3000/todoList")
 .then(response =>response.json())
@@ -233,6 +289,7 @@ function displayTaskList(){
 } 
 displayTaskList();
 
+// POST REQUEST TO CREATE A NEW TASK FOR TODO LIST
 listForm.addEventListener("submit", (event)=>{
     event.preventDefault();
     const itemInput = document.getElementById("item-input");
@@ -257,57 +314,6 @@ listForm.addEventListener("submit", (event)=>{
 
 //Create and display current Time 
 
-let date = new Date();
-const currentDate = date.toLocaleString("en-US", {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  weekday: 'long'
-});
-theDate.textContent = currentDate;
 
-function updateTime() {
-  const timeElement = document.getElementById('time');
 
-  timeElement.textContent = new Date().toLocaleTimeString();
-}
-
-updateTime();
-
-setInterval(updateTime, 1000);
-
-newNote.addEventListener("submit", (event)=>{
-    event.preventDefault();
-    const newNoteTitle = document.getElementById("title").value;
-    const newNoteDetails = document.getElementById("details").value;
-    const today = new Date();
-          const creationDate = today.toLocaleString("en-US", {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          });
-    const createdNote = {
-        date: creationDate,
-        noteTitle: newNoteTitle,
-        details: newNoteDetails
-    }
-    fetch("http://localhost:3000/notes",{
-        method: "POST",
-        headers: { 
-            "content-type": "application/json",
-            "accept": "application/json"
-        },
-        body: JSON.stringify(createdNote)
-    })
-    .then(response =>response.json())
-    .then(newNotes =>{
-        console.log()
-        noteCreator(newNotes)
-        document.getElementById("title").value = "";
-        document.getElementById("details").value = "";
-        newNote.style.display = "none";
-        noteList.style.display = "";
-    })
-    
-})
 
