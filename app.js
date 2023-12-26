@@ -114,43 +114,43 @@ displayTodoList.addEventListener("click", ()=>{
       
         })
 
-        // function changeNote(){
-        //     editNoteForm.addEventListener("submit", (e)=>{
-        //         e.preventDefault();
+        function changeNote(){
+            editNoteForm.addEventListener("submit", (e)=>{
+                e.preventDefault();
 
-        //         const noteEdited = {
-        //             noteTitle:  editNoteTitle.value,
-        //             details: editNoteDetail.value
-        //         }
-        //         noteTile.textContent = noteEdited.noteTitle;
-        //         noteDetails.textContent = noteEdited.details;
+                const noteEdited = {
+                    noteTitle:  editNoteTitle.value,
+                    details: editNoteDetail.value
+                }
+                noteTile.textContent = noteEdited.noteTitle;
+                noteDetails.textContent = noteEdited.details;
                 
-        //         fetch(`http://localhost:3000/notes/${id}`,{
-        //             method: "PATCH",
-        //             headers: {"content-type": "application/json",
-        //                        "accept": "application/json"
-        //         },
-        //         body: JSON.stringify(noteEdited)
-        //         })
-        //         .then(response=>response.json())
-        //         .then(newNote=>{
-        //             // newNote.noteTitle = noteEdited.newTitle;
-        //             console.log(newNote)
-        //             // editNoteTitle.value = noteTile.textContent
-        //             // editNoteDetail.value = noteDetails.textContent
-        //             // noteDetails.value = noteEdited.newDetail;
-        //             newNote.noteTitle = noteEdited.noteTitle;
-        //             newNote.details = noteEdited.details;
+                fetch(`http://localhost:3000/notes/${id}`,{
+                    method: "PATCH",
+                    headers: {"content-type": "application/json",
+                               "accept": "application/json"
+                },
+                body: JSON.stringify(noteEdited)
+                })
+                .then(response=>response.json())
+                .then(newNote=>{
+                    // newNote.noteTitle = noteEdited.newTitle;
+                    console.log(newNote)
+                    // editNoteTitle.value = noteTile.textContent
+                    // editNoteDetail.value = noteDetails.textContent
+                    // noteDetails.value = noteEdited.newDetail;
+                    newNote.noteTitle = noteEdited.noteTitle;
+                    newNote.details = noteEdited.details;
                     
-        //         })
-        //         editNoteForm.style.display = "none"
+                })
+                editNoteForm.style.display = "none"
                
-        //         //  noteTile.textContent = noteEdited.noteTitle;
-        //         // noteDetails.textContent = noteEdited.details;
-        //     })
+                //  noteTile.textContent = noteEdited.noteTitle;
+                // noteDetails.textContent = noteEdited.details;
+            })
             
 
-        // }
+        }
 
   }
 
